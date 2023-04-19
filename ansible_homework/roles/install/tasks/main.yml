@@ -1,0 +1,15 @@
+- name: 'run apt update'
+  apt:
+    name: '*'
+    state: latest
+
+- name: 'install git'
+  apt:
+    name: git
+    state: present
+    update_cache: yes
+
+- name: 'Install Python3'
+  apt:
+    name: python3
+    state: present

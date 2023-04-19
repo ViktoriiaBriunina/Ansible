@@ -1,0 +1,25 @@
+---
+- name: Create new user
+  user:
+    name: 'viktoriia_briunina'
+    password: '$6$xJL64pldVrs9Ruxs$bPbLQFT7OalybkssnUTe/WD4CHzb/0zEKse2xdUGXEjgytSRDM9zLO3W5e6oNbXbT5BKNEIX6xrMaYSDZsjBh.'
+    shell: /bin/bash
+    groups: sudo
+    createhome: yes
+    append: yes
+
+- name: create folder
+  ansible.builtin.file:
+    path: /home/viktoriia_briunina/.ssh
+    owner: viktoriia_briunina
+    group: viktoriia_briunina
+    mode: '0640'
+    state: directory
+
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: /home/sgtuser/viktoriiakey.pub
+    dest: /home/viktoriia_briunina/.ssh/authorized_keys
+    owner: viktoriia_briunina
+    group: viktoriia_briunina
+    mode: '0600'

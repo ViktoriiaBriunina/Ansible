@@ -1,0 +1,16 @@
+- name: create folder
+  ansible.builtin.file:
+    path: /home/viktoriia_briunina/application
+    owner: viktoriia_briunina
+    group: viktoriia_briunina
+    mode: '0777'
+    state: directory
+
+- name: Clone a repo with separate git directory
+  ansible.builtin.git:
+    repo: https://github.com/ViktoriiaBriunina/Homeworks_Python
+    dest: /home/viktoriia_briunina/application/homework
+
+- name: run my application
+  ansible.builtin.command: python3 /home/viktoriia_briunina/application/homework/homework_1.py
+

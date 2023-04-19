@@ -1,0 +1,5 @@
+[sgt]
+my-sgt-instance ansible_host=16.16.75.84
+
+[sgt:vars]
+ansible_user=ubuntu

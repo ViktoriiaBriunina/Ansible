@@ -1,0 +1,11 @@
+---
+- hosts: sgt
+  roles:
+    - application
+  become: true
+  become_method: sudo
+
+
+
+
+
